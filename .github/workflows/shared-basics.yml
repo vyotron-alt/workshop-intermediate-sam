@@ -1,0 +1,69 @@
+# Job *names* must stay aligned with intermediate-portal workshop_signals map.
+name: Shared basics checks
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  skill-1-git-pr:
+    name: skill-1-git-pr
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: echo "skill-1 git/pr placeholder OK"
+
+  skill-2-cli:
+    name: skill-2-cli
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 --version && echo "skill-2 cli placeholder OK"
+
+  skill-3-read-code:
+    name: skill-3-read-code
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: test -f hello/__init__.py && echo "skill-3 read-code placeholder OK"
+
+  skill-4-pytest:
+    name: skill-4-pytest
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -e ".[dev]"
+      - run: pytest -q
+
+  skill-5-http-api:
+    name: skill-5-http-api
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: echo "skill-5 http-api placeholder OK"
+
+  skill-6-db-lite:
+    name: skill-6-db-lite
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: echo "skill-6 db-lite placeholder OK"
+
+  skill-7-deploy:
+    name: skill-7-deploy
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: echo "skill-7 deploy placeholder OK"
+
+  skill-8-hardware:
+    name: skill-8-hardware
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: echo "skill-8 hardware practice mode OK"
