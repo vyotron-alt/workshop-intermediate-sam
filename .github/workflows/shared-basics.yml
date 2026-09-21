@@ -1,4 +1,7 @@
+# Partner paste target: .github/workflows/shared-basics.yml
+# on vyotron-alt/workshop-intermediate-{alex,sam} (and template when ready).
 # Job *names* must stay aligned with intermediate-portal workshop_signals map.
+# No LLM grading — deterministic checks only.
 name: Shared basics checks
 
 on:
@@ -12,29 +15,38 @@ jobs:
     name: skill-1-git-pr
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - run: echo "skill-1 git/pr placeholder OK"
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - run: python skills/git_pr/check.py
 
   skill-2-cli:
     name: skill-2-cli
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - run: python3 --version && echo "skill-2 cli placeholder OK"
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - run: python skills/cli/check.py
 
   skill-3-read-code:
     name: skill-3-read-code
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - run: test -f hello/__init__.py && echo "skill-3 read-code placeholder OK"
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - run: python skills/read_code/check.py
 
   skill-4-pytest:
     name: skill-4-pytest
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
         with:
           python-version: "3.12"
       - run: pip install -e ".[dev]"
@@ -44,26 +56,35 @@ jobs:
     name: skill-5-http-api
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - run: echo "skill-5 http-api placeholder OK"
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - run: python skills/http_api/check.py
 
   skill-6-db-lite:
     name: skill-6-db-lite
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - run: echo "skill-6 db-lite placeholder OK"
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - run: python skills/db_lite/check.py
 
   skill-7-deploy:
     name: skill-7-deploy
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - run: echo "skill-7 deploy placeholder OK"
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - run: python skills/deploy/check.py
 
   skill-8-hardware:
     name: skill-8-hardware
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - run: echo "skill-8 hardware practice mode OK"
+      - uses: actions/checkout@v7
+      - run: echo "skill-8 hardware practice mode — never gates own-project unlock"
