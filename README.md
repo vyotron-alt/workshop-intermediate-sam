@@ -7,3 +7,7 @@ Student workshop sandbox for Intermediate portal demos.
 **Partner:** add GitHub Actions under `.github/workflows/` when ready (portal token may lack `workflow` scope, so workflows are not pushed from eng automation). Job names should include fragments the portal maps (`skill-1` / `git-pr` … `skill-7` / `deploy`). `skill-8` / hardware never gates unlock.
 
 Template source: https://github.com/vyotron-alt/workshop-intermediate
+
+## CI checks
+
+See [docs/CI-CHECKS.md](docs/CI-CHECKS.md) for what each `skill-1…skill-7` job verifies (no LLM grading).
